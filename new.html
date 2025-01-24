@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>NSTRU Project</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">NSTRU LOGO</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="#" onclick="logout()">Sign out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="dashborad.html">
+                <span data-feather="home"></span>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="new.html">
+                <span data-feather="file"></span>
+                New Project
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Customers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Reports
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Integrations
+              </a>
+            </li> -->
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>จัดการข้อมูลพื้นฐาน</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                ข้อมูลยุทธศาสตร์
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                รายชื่อผู้รับผิดชอบ
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                รายการค่าใช้จ่าย
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <form id="projectForm">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">+ New Project</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <!-- <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div> -->
+            <button type="submit" class="btn btn-sm btn-outline-secondary">บันทึกข้อมูล</button>
+          </div>
+        </div>
+
+        <div>
+          <h6>บันทึกผลการดำเนินงานโครงการ</h6>
+        <ul class="nav nav-tabs " id="tabMenu">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Basic">1.ข้อมูลโครงการ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Plans">2.กิจกรรมตามแผน</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#Budget">3.งบประมาณ-ค่าใช้จ่าย</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Output">4.ผลการดำเนินงาน</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Outcomes">5.ผลลัพธ์ที่ได้</a>
+        </li>
+        </ul>
+
+        <div class="tab-content mt-4">
+          <!-- Register Form -->
+            <div class="tab-pane fade show active" id="Basic">
+              <h5 class="mb-3">ข้อมูลโครงการ</h5>
+
+              <article id="start-page">
+                <div class="mb-3">
+                  <label for="project_name" class="form-label fw-bold">ชื่อโครงการ:</label>
+                  <input type="text" id="project_name" name="project_name" class="form-control">
+                </div>
+  
+                <div class="mb-3">
+                  <label for="project_detail" class="form-label fw-bold">รายละเอียดโครงการ:</label>
+                  <textarea id="project_detail" name="project_detail" rows="4" class="form-control"></textarea>
+                </div>
+              </article>
+
+              <article id="project-strategy">
+                <label  class="form-label fw-bold">สอดคล้องกับประเด็นยุทธศาสตร์:</label>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalDefault">
+                    + เพิ่มยุทธศาสตร์
+                  </button>
+                  <input type="hidden" name="project_strategic" value="{}">
+                <div class="mb-3">
+                  <table class="table table-sm table-bordered">
+                    <tbody>
+                      <tr>
+                        <td class="col-md-3" scope="row">เป้าประสงค์ของ :</td>
+                        <td>มหาวิทยาลัย</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">ประเด็นยุทธศาสตร์ที่ :</td>
+                        <td>ที่ 3 การยกระดับคุณภาพการศึกษา</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">เป้าประสงค์ที่ :</td>
+                        <td>3.2 บัณฑิตมีสมรรถนะและทักษะที่สอดคล้องกับความต้องการของท้องถิ่นและการพัฒนาประเทศ</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">ตัวชี้วัด :</td>
+                        <td>ร้อยละของนักศึกษาที่เข้าร่วมกิจกรรมพัฒนาอัตลักษณ์ นักคิด นักปฏิบัติ มีสาธารณะ</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">นโยบายสภามหาวิทยาลัย :</td>
+                        <td>นโยบายเร่งด่วนข้อที่ 2 ปฏิรูปกระบวนการจัดการเรียนรู้
+                          เพิ่มศักยภาพของนักศึกษาให้มีสมรรถนะตามมาตรฐานวิชาชีพ ทักษะศตวรรษที่ 21 และคุณลักษณะ 4 ประการ
+                          ตามพระบรมราโชบายด้านการศึกษาของพระบาทสมเด็จพระเจ้าอยู่หัว รัชกาลที่ 10
+                          โดยเน้นการทำงานจริงในสถานประกอบการหรือหน่วยงานภายนอก
+                          เน้นการนำนวัตกรรมการศึกษาลงท้องถิ่นเพื่อเสริมสร้างจิตสำนึกในการพัฒนาท้องถิ่น</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <article id="ck-project-type">
+                <label  class="form-label fw-bold">ลักษณะโครงการ (ตอบได้มากกว่า 1 ข้อ) :</label>
+                <input type="hidden" id="project_type" name="project_type" value="">
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <input type="checkbox" id="ck-project-type1"  value="พัฒนาหลักสูตรและการเรียนการสอน" class="form-check-input">
+                    <label for="ck-project-type1" class="form-check-label">พัฒนาหลักสูตรและการเรียนการสอน</label>
+                  </div>
+                  <div class="col">
+                    <input type="checkbox" id="ck-project-type2"  value="พัฒนาบุคลากร" class="form-check-input">
+                    <label for="ck-project-type2" class="form-check-label">พัฒนาบุคลากร</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <input type="checkbox" id="ck-project-type3"  value="บริการทางวิชาการ" class="form-check-input">
+                    <label for="ck-project-type3" class="form-check-label">บริการทางวิชาการ</label>
+                  </div>
+                  <div class="col">
+                    <input type="checkbox" id="ck-project-type4"  value="ทำนุบำรุงศิลปวัฒนธรรม" class="form-check-input">
+                    <label for="ck-project-type4" class="form-check-label">ทำนุบำรุงศิลปวัฒนธรรม</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <input type="checkbox" id="ck-project-type5"  value="ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม" class="form-check-input">
+                    <label for="ck-project-type5" class="form-check-label">ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม</label>
+                  </div>
+                  <div class="col">
+                    <input type="checkbox" id="ck-project-type6"  value="พัฒนานักศึกษา" class="form-check-input">
+                    <label for="ck-project-type6" class="form-check-label">พัฒนานักศึกษา</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <input type="checkbox" id="ck-project-type7"  value="ด้านคุณธรรมจริยธรรมและบุคลิกภาพ" class="form-check-input">
+                    <label for="ck-project-type7" class="form-check-label">ด้านคุณธรรมจริยธรรมและบุคลิกภาพ</label>
+                  </div>
+                  <div class="col">
+                    <input type="checkbox" id="ck-project-type8"  value="พัฒนาท้องถิ่น" class="form-check-input">
+                    <label for="ck-project-type8" class="form-check-label">พัฒนาท้องถิ่น</label>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <input type="checkbox" id="ck-project-type9"  value="บริหารจัดการนโยบายและแผน" class="form-check-input">
+                    <label for="ck-project-type9" class="form-check-label">บริหารจัดการนโยบายและแผน</label>
+                  </div>
+                </div>
+              </article>
+
+              <article id="project-status">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="project-status-dd"  class="form-label fw-bold">สถานะโครงการ:</label>
+                    <select id="project-status-dd" name="project_status" class="form-select">
+                      <option value="" selected disabled>-- เลือกสถานะ --</option>
+                      <option value="โครงการเดิม">โครงการเดิม</option>
+                      <option value="โครงการใหม่">โครงการใหม่</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="project-date-txt"  class="form-label fw-bold">วันที่ดำเนินการ:</label>
+                      <div class="mb-3">
+                        <input type="date" id="project-date-txt" name="implement_date" class="form-control">
+                      </div>
+                  </div>
+                </div>
+              </article>
+
+              <article id="project-location">
+                <label for="project-location-txt"  class="form-label fw-bold">สถานที่จัดโครงการ:</label>
+                <div class="mb-3">
+                  <textarea id="project-location-txt" name="project_location" rows="2" class="form-control"></textarea>
+                </div>
+              </article>
+
+              <article id="project-person">
+                <label class="form-label fw-bold">ข้อมูลผู้รับผิดชอบโครงการ / กิจกรรม:</label>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropLive">
+                + เพิ่มข้อมูลผู้รับผิดชอบ
+                </button>
+                <input type="hidden" name="project_person" value="{}">
+                <div class="mb-3">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ชื่อ-นามสกุล</th>
+                        <th scope="col">ตำแหน่ง</th>
+                        <th scope="col">e-mail</th>
+                        <th scope="col">โทรศัพท์</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>นางเมธาวี จำเนียน</td>
+                        <td>ผู้ช่วยศาสตราจารย์</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <article id="project-objective">
+                <label for="project-objective-txt"  class="form-label fw-bold">วัตถุประสงค์ของโครงการ:</label>
+                <div class="mb-3">
+                  <textarea id="project-objective-txt" name="project_objectives" rows="4" class="form-control"></textarea>
+                </div>
+              </article>
+
+              
+          </div>
+
+           <!-- Login Form -->
+           <div class="tab-pane fade" id="Plans">
+            <h5>กิจกรรมตามแผน</h5>
+
+            <article id="project-summary">
+              <label class="form-label fw-bold">สรุปการดำเนินงานกิจกรรมตามแผน:</label>
+              <div class="mb-3">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th class="col-md-6" scope="col">กิจกรรม</th>
+                      <th scope="col">ระยะเวลา (ตามแผน)</th>
+                      <th scope="col">ระยะเวลา (ปฏิบัติจริง)</th>
+                      <th scope="col">หมายเหตุ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>เสนอโครงการ</td>
+                      <td>ธ.ค. 65</td>
+                      <td>ต.ค. 65</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModalCenteredScrollable">
+                  + เพิ่มข้อมูลกิจกรรม
+                </button>
+              </div>
+
+              <div class="mb-3">
+                <label for="plan_status" class="form-label">สรุปสถานะแผน :</label>
+                <select id="plan_status" name="plan_status" class="form-select">
+                  <option value="" selected disabled>-- เลือกสถานะ --</option>
+                  <option value="ล่าช้ากว่าแผน">ล่าช้ากว่าแผน</option>
+                  <option value="ตามแผน">ตามแผน</option>
+                  <option value="เร็วกว่าแผน">เร็วกว่าแผน</option>
+                </select>
+              </div>
+            </article>
+           
+           </div>
+
+           <div class="tab-pane fade" id="Budget">
+            <h5 class="mb-3">แผนงบประมาณ</h5>
+
+            <article id="project-budget">
+              <div class="row mb-3">
+                <div class="col-6">
+                  <label for="budget_cash" class="form-label">แหล่งงบประมาณ หมวดเงิน (In Cash) :</label>
+                  <input type="text" id="budget_cash" name="budget_cash" class="form-control">
+                </div>
+                <div class="col-6">
+                  <label for="budget_kind" class="form-label">แหล่งงบประมาณ หมวดเงิน (In Kind):</label>
+                  <input type="text" id="budget_kind" name="budget_kind" class="form-control">
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label">แหล่งงบประมาณ :</label>
+                <select id="budget_source" name="budget_source" class="form-select">
+                  <option value="" selected disabled>-- เลือกแหล่งงบประมาณ --</option>
+                  <option value="งบประมาณแผ่นดิน">งบประมาณแผ่นดิน</option>
+                  <option value="งบประมาณเงินรายได้">งบประมาณเงินรายได้</option>
+                  <option value="งบประมาณอื่น ๆ ">งบประมาณอื่น ๆ </option>
+                </select>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-6">
+                  <label for="budget_received" class="form-label">จำนวนที่ได้รับ :</label>
+                  <input type="text" id="budget_received" name="budget_received" class="form-control">
+                </div>
+                <div class="col-6">
+                  <label for="budget_pay" class="form-label">ใช้จริง :</label>
+                  <input type="text" id="budget_pay" name="budget_pay" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-6">
+                  <label class="form-label">แผนงาน :</label>
+                  <select id="budget_plan" name="budget_plan" class="form-select">
+                    <option value="" selected disabled>-- เลือกแผนงาน --</option>
+                    <option value="แผนงาน 1">แผนงาน 1</option>
+                    <option value="แผนงาน 2">แผนงาน 2</option>
+                    <option value="แผนงาน 3">แผนงาน 2</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">ผลผลิต :</label>
+                  <select id="budget_output" name="budget_output" class="form-select">
+                    <option value="" selected disabled>-- เลือกผลผลิต --</option>
+                    <option value="ผลผลิต 1">ผลผลิต 1</option>
+                    <option value="ผลผลิต 2">ผลผลิต 2</option>
+                    <option value="ผลผลิต 3">ผลผลิต 3</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="budget_code" class="form-label">รหัสงบ :</label>
+                <input type="text" id="budget_code" name="budget_code" class="form-control">
+              </div>
+
+              <h5 class="mt-5">รายการค่าใช้จ่าย</h5>
+              <div class="mb-3">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">หมวดงบประมาณ</th>
+                      <th class="col-md-6" scope="col">งบประมาณ (บาท)</th>
+                      <th scope="col">สรุปคำชี้แจง</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" colspan="3">ค่าใช้สอย</th>
+                    </tr>
+                    <tr>
+                      <td>- ค่าน้ำมันเชื้อเพลิง</td>
+                      <td>824</td>
+                      <td>ค่าน้ำมันเชื้อเพลิง จำนวน 2 ครั้ง เป็นเงิน 824 บาท</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>
+                  หมายเหตุ : หน่วยงานสามารถเพิ่มจำนวนข้อค่าใช้จ่ายในแต่ละหมวดงบประมาณได้
+                </p>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModalFullscreen">
+                  + เพิ่มข้อมูลค่าใช้จ่าย
+                </button>
+              </div>
+            </article>
+           
+           </div>
+
+           <div class="tab-pane fade" id="Output">
+            <h5 class="mb-3">ผลการดำเนินงาน</h5>
+            <article id="project-participants">
+              <label class="form-label fw-bold">ผู้เข้าร่วมโครงการ:</label>
+              <div class="mb-3">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">ผู้เข้าร่วมโครงการ</th>
+                      <th class="col-md-6" scope="col">จำนวนค่าเป้าหมาย</th>
+                      <th scope="col">จำนวนผู้เข้าร่วม</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" colspan="3">กลุ่มเป้าหมาย</th>
+                    </tr>
+                    <tr>
+                      <td>- นักศึกษา</td>
+                      <td>9</td>
+                      <td>16</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>
+                  หมายเหตุ : หน่วยงานสามารถเพิ่มจำนวนข้อประเภทผู้เข้าร่วมโครงการได้
+                </p>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModalPerson">
+                  + เพิ่มข้อมูลผู้เข้าร่วมโครงการ
+                </button>
+                <input type="hidden" name="participants" value="{}">
+              </div>
+            </article>
+
+            <article id="project-evaluate">
+              <label class="form-label">ผลการประเมินโครงการ/กิจกรรม:</label>
+              <input type="hidden" id="output_type" name="output_type" value="">
+              <div>
+                <label class="form-label">11.1 ประเภทของผลผลิตโครงการ (ตอบได้มากกว่า 1 ข้อ) :</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" id="ck-output-type1" value="ผลผลิตที่เป็นโครงสร้างทางกายภาพ หรือผลิตภัณฑ์" class="form-check-input">
+                <label for="ck-output-type1" class="form-check-label">ผลผลิตที่เป็นโครงสร้างทางกายภาพ หรือผลิตภัณฑ์
+                  (Products)</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" id="ck-output-type2" value="ผลผลิตที่เป็นลักษณะการให้บริการ (Service)" class="form-check-input">
+                <label for="ck-output-type2" class="form-check-label">ผลผลิตที่เป็นลักษณะการให้บริการ (Service)</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" id="ck-output-type3" value="ผลผลิตที่เป็นลักษณะเกี่ยวข้องกับการบริหารจัดการ" class="form-check-input">
+                <label for="ck-output-type3" class="form-check-label">ผลผลิตที่เป็นลักษณะเกี่ยวข้องกับการบริหารจัดการ
+                  (Management)</label>
+              </div>
+
+              <div class="mb-3">
+                <label for="output_result" class="form-label">11.2 ผลผลิตที่ได้รับจากโครงการ (Outputs) :</label>
+                <textarea id="output_result" name="output_result" rows="4" class="form-control"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="output_satisfaction" class="form-label">11.3 ความพึงพอใจของผู้เข้าร่วมโครงการ/กิจกรรม
+                  (ร้อยละ):</label>
+                <input type="text" id="output_satisfaction" name="output_satisfaction" class="form-control">
+              </div>
+
+              <p>
+                <label class="form-label">11.4 ดัชนีชี้วัดความสำเร็จของโครงการ/ผลผลิตที่ได้รับจากโครงการ :</label>
+              </p>
+              <div class="mb-3">
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-md-6" scope="col">ตัวชี้วัด (Indicators)</th>
+                      <th scope="col">เป้าหมาย (Target)</th>
+                      <th scope="col">ผลที่ได้รับ(Actual)</th>
+                      <th scope="col">ผลเป้าหมาย (สูง/ต่ำ)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ร้อยละของนักศึกษาที่เข้าร่วมกิจกรรม</td>
+                      <td>ร้อยละ 80</td>
+                      <td>ร้อยละ 100</td>
+                      <td>สูง</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalKPI">
+                  + เพิ่มข้อมูลดัชนีชี้วัดความสำเร็จ
+                </button>
+                <input type="hidden" name="success_indicators" value="{}">
+              </div>
+            </article>
+
+           </div>
+
+           <div class="tab-pane fade" id="Outcomes">
+            <h5 class="mb-3">ผลลัพธ์</h5>
+
+            <article id="project-outcomes">
+              <div class="mb-3">
+                <label for="outcomes" class="form-label">ผลลัพธ์ที่ได้รับจากโครงการ (Outcomes):</label>
+                <textarea id="outcomes" name="outcomes" rows="4" class="form-control"></textarea>
+              </div>
+            </article>
+
+            <article id="project-impacts">
+              <div class="mb-3">
+                <label for="impacts" class="form-label">ผลกระทบ (Impacts):</label>
+                <textarea id="impacts" name="impacts" rows="4" class="form-control"></textarea>
+              </div>
+            </article>
+
+            <article id="project-problem">
+              <div class="mb-3">
+                <label for="problems" class="form-label">ปัญหา/อุปสรรค:</label>
+                <textarea id="problems" name="problems" rows="4" class="form-control"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="solution" class="form-label">แนวทางแก้ไข:</label>
+                <textarea id="solution" name="solution" rows="4" class="form-control"></textarea>
+              </div>
+            </article>
+
+            <article id="project-after">
+              <div class="mb-3">
+                <label for="work_continued" class="form-label">งานที่จะดำเนินต่อหลังจากการดำเนินโครงการ:</label>
+                <textarea id="work_continued" name="work_continued" rows="4" class="form-control"></textarea>
+              </div>
+            </article>
+
+            <article id="project-report">
+              <h5 class="mt-5">ผลการวิเคราะห์ข้อมูล</h5>
+              <div class="mb-3">
+                <label for="report_analysis" class="form-label">อธิบายผลผลการวิเคราะห์ข้อมูล:</label>
+                <textarea id="report_analysis" name="report_analysis" rows="4" class="form-control"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="report_file" class="form-label">อัพโหลดไฟล์ผลการวิเคราะห์ข้อมูล:</label>
+                <input type="file" id="report_file" name="report_file" class="form-control">
+              </div>
+            </article>
+
+            <article id="project-appendix">
+              <h5 class="mt-5">ภาคผนวก</h5>
+              <div class="mb-3">
+                <label for="file-upload" class="form-label">อัพโหลดไฟล์หลักฐานประกอบการรายงานผลการจัดโครงการ:</label>
+                <table class="table table-sm table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-md-6" scope="col">ชื่อเอกสาร</th>
+                      <th scope="col">ขนาดไฟล์</th>
+                      <th scope="col">วันที่อัพโหลด</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>หนังสือขออนุมัติโครงการ</td>
+                      <td>1.2 KB</td>
+                      <td>12/08/2567</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModalAppendix">
+                  + เพิ่มข้อมูลเอกสาร
+                </button>
+                <input type="hidden" name="file_upload" value="{}">
+              </div>
+            </article>
+           
+           </div>
+
+        </div>
+        </div>
+
+        <input type="hidden" name="created_by" value="admin">
+
+      </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="javascript/init.js"></script>
+  <script src="javascript/new.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

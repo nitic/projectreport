@@ -1,0 +1,35 @@
+services:
+    php:
+        image: kengi012/php73-apache:6.0
+        container_name: projcet_webphp73
+        ports:
+            - 80:80
+        volumes:
+            - .:/var/www/html
+        depends_on:
+            - mariadb-db
+        restart: always
+
+    mariadb-db:
+        image: mariadb:10.6
+        container_name: projcet_mariadb10
+        volumes:
+            - ./database:/var/lib/mysql
+            - ./schema:/docker-entrypoint-initdb.d
+        environment:
+            - TZ=Asia/Bangkok
+            - MYSQL_ROOT_PASSWORD=123456
+        ports:
+            - 3306:3306
+        restart: always
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: projcet_phpmyadmin
+        environment:
+        - PMA_HOSTS=mariadb-db
+        - MYSQL_ROOT_PASSWORD=123456
+        ports:
+        - "8081:80"
+        depends_on:
+        - mariadb-db

@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>NSTRU Project</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">NSTRU LOGO</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="#" onclick="logout()">Sign out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="dashborad.html">
+                <span data-feather="home"></span>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="new.html">
+                <span data-feather="file"></span>
+                New Project
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Customers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Reports
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Integrations
+              </a>
+            </li> -->
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>จัดการข้อมูลพื้นฐาน</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                ข้อมูลยุทธศาสตร์
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                รายชื่อผู้รับผิดชอบ
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                รายการค่าใช้จ่าย
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <!-- <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div> 
+            <button type="submit" class="btn btn-sm btn-outline-secondary">บันทึกข้อมูล</button>
+            -->
+          </div>
+        </div>
+
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">Budget</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">จำนวนเงินงบประมาณที่ใช้ทั้งหมด</p>
+                    <h4 class="mb-0">1,563,000 บ.</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">Project</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">จำนวนโครงการ</p>
+                    <h4 class="mb-0">2,300</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">Participants</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">จำนวนผู้เข้าร่วมโครงการ</p>
+                    <h4 class="mb-0">3,462</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">-2%</span> than yesterday</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <div class="card">
+                <div class="card-header p-3 pt-2">
+                  <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                    <i class="material-icons opacity-10">Expenses</i>
+                  </div>
+                  <div class="text-end pt-1">
+                    <p class="text-sm mb-0 text-capitalize">รวมจำนวนค่าใช้จ่ายทั้งหมด</p>
+                    <h4 class="mb-0">103,430 บ.</h4>
+                  </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                  <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-lg-4 col-md-6 mt-4 mb-4">
+              <div class="card z-index-2 ">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                    <div class="chart">
+                      <canvas id="chart-bars" class="chart-canvas" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 293.3px;" width="293"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="mb-0 ">จำนวนค่าใช้จ่ายแยกตามหมวดรายจ่าย</h6>
+                  <p class="text-sm ">Last Campaign Performance</p>
+                  <hr class="dark horizontal">
+                  <div class="d-flex ">
+                    <i class="material-icons text-sm my-auto me-1">schedule</i>
+                    <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-4 mb-4">
+              <div class="card z-index-2  ">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+                    <div class="chart">
+                      <canvas id="chart-line" class="chart-canvas" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 293.3px;" width="293"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="mb-0 "> จำนวนโครงการแยกตามเดือน </h6>
+                  <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
+                  <hr class="dark horizontal">
+                  <div class="d-flex ">
+                    <i class="material-icons text-sm my-auto me-1">schedule</i>
+                    <p class="mb-0 text-sm"> updated 4 min ago </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-4 mb-3">
+              <div class="card z-index-2 ">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+                    <div class="chart">
+                      <canvas id="chart-line-tasks" class="chart-canvas" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 293.3px;" width="293"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="mb-0 ">ภาพรวมสถานะแผน</h6>
+                  <p class="text-sm ">Last Campaign Performance</p>
+                  <hr class="dark horizontal">
+                  <div class="d-flex ">
+                    <i class="material-icons text-sm my-auto me-1">schedule</i>
+                    <p class="mb-0 text-sm">just updated</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+              <div class="card">
+                <div class="card-header pb-0">
+                  <div class="row">
+                    <div class="col-lg-6 col-7">
+                      <h6>รายการโครงการ</h6>
+                      <p class="text-sm mb-0">
+                        <i class="fa fa-check text-info" aria-hidden="true"></i>
+                        จำนวนทั้งหมด <span class="font-weight-bold ms-1">30 โครงการ</span>
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-5 my-auto text-end">
+                      <div class="dropdown float-lg-end pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                          <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                          <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                  <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                      <thead>
+                        <tr>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ชื่อโครงการ</th>
+                          <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">สถานะโครงการ</th>
+                          <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">วงเงินงบประมาณ (บาท)</th>
+                          <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ผลการดำเนินงาน</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการพัฒนานักศึกษาให้มีคุณลักษณะตามอัตลักษณ์บัณฑิต 4 ประการ</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> เร็วกว่าแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 20,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">60%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการพัฒนาระบบแอปพลิเคชันเพื่อการจัดการธุรกิจอย่างมีประสิทธิภาพ</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ตามแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 1,500,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">75%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการก่อสร้างโรงเรียนเพื่อการศึกษาที่มีคุณภาพในชุมชน</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ล่าช้ากว่าแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 10,000,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">40%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-success w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการปรับปรุงถนนเพื่อการคมนาคมที่สะดวกและปลอดภัย</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> เร็วกว่าแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 5,000,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">90%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-success w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการพัฒนาสวนสาธารณะเพื่อการพักผ่อนและกิจกรรมสันทนาการของประชาชน</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ตามแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 3,000,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">25%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการก่อสร้างสะพานเพื่อการเชื่อมต่อระหว่างชุมชนและการพัฒนาเศรษฐกิจ</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ล่าช้ากว่าแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 8,000,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">40%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการพัฒนาระบบการจัดการขยะเพื่อสิ่งแวดล้อมที่ยั่งยืนในชุมชน</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ตามแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 	2,500,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">55%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-55" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="40"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <span class="text-sm">โครงการพัฒนาระบบการจัดการน้ำเพื่อการเกษตรที่มีประสิทธิภาพและยั่งยืน</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="align-middle text-sm">
+                            <span class="text-xs font-weight-bold"> ล่าช้ากว่าแผน </span>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> 4,500,000 </span>
+                          </td>
+                          <td class="align-middle">
+                            <div class="progress-wrapper w-75 mx-auto">
+                              <div class="progress-info">
+                                <div class="progress-percentage">
+                                  <span class="text-xs font-weight-bold">25%</span>
+                                </div>
+                              </div>
+                              <div class="progress">
+                                <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="40"></div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100">
+                <div class="card-header pb-0">
+                  <h6>ภาพรวมลักษณะโครงการ</h6>
+                  <p class="text-sm">
+                    <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                    แยกสัดส่วนในแต่ละด้านได้ดังนี้
+                  </p>
+                </div>
+                <div class="card-body p-3">
+                  
+                  <ul class="list-group">
+                    <li class="list-group-item">พัฒนาหลักสูตรและการเรียนการสอน <span class="font-weight-bold">35%</span></li>
+                    <li class="list-group-item">พัฒนาบุคลากร <span class="font-weight-bold">5%</span></li>
+                    <li class="list-group-item">บริการทางวิชาการ <span class="font-weight-bold">80%</span></li>
+                    <li class="list-group-item">ทำนุบำรุงศิลปวัฒนธรรม <span class="font-weight-bold">45%</span></li>
+                    <li class="list-group-item">ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม <span class="font-weight-bold">10%</span> </li>
+                    <li class="list-group-item">ด้านคุณธรรมจริยธรรมและบุคลิกภาพ <span class="font-weight-bold">55%</span></li>
+                    <li class="list-group-item">พัฒนานักศึกษา <span class="font-weight-bold">74%</span></li>
+                    <li class="list-group-item">พัฒนาท้องถิ่น <span class="font-weight-bold">5%</span></li>
+                    <li class="list-group-item">บริหารจัดการนโยบายและแผน <span class="font-weight-bold">0%</span></li>
+    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="javascript/init.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
